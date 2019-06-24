@@ -1,59 +1,5 @@
 var numeroNota = 0;
 
-function atualizarVisor(valor) {
-    if (document.getElementById('visor')) {
-        document.getElementById('visor').value = valor;
-    }
-}
-
-function calcular() {
-    let n1 = parseFloat(num1) ? parseFloat(num1) : 0;
-    let n2 = parseFloat(num2) ? parseFloat(num2) : 0;
-
-    if (op == '+') {
-        num1 = n1 + n2;
-    } else if (op == '-') {
-        num1 = n1 - n2;
-    } else if (op == '/') {
-        num1 = n1 / n2;
-    } else if (op == '*') {
-        num1 = n1 * n2;
-    } else {
-        num1 = "Operação inválida!";
-    }
-
-    num2 = null;
-    op = null;
-
-    atualizarVisor(num1);
-
-    return num1;
-}
-
-function numero(n) {
-    if (op) {
-        num2 = num2 ? num2 + '' + n : n;
-        atualizarVisor(num2);
-    } else {
-        num1 = num1 ? num1 + '' + n : n;
-        atualizarVisor(num1);
-    }
-
-}
-
-function operador(o) {
-    if (o == '=') {
-        calcular();
-    } else if (op != null) {
-        n1 = calcular();
-        op = o;
-        atualizarVisor(o);
-    } else {
-        op = o;
-        atualizarVisor(o);
-    }
-}
-
 function criarElemento(element, classList = [], funcao, valor, placeholder) {
     const el = document.createElement(element);
 
