@@ -112,7 +112,7 @@ function calcularMedia() {
         
         if (valor.value) {
             qtdNotas++;
-            peso = pesos[i].value != null ? parseInt(pesos[i].value) : 1; 
+            peso = pesos[i].value ? parseFloat(pesos[i].value) : 1; 
             soma += parseInt(valor.value) * peso;
             somaPesos += peso;
         }
